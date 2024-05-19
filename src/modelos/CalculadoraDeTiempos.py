@@ -31,21 +31,21 @@ class CalculadoraTiempos:
         p = len(b)
         m = len(b[0])
 
-        CalculadoraTiempos.calcular_naiv_on_array(a, b)
-        CalculadoraTiempos.calcular_naiv_loop_unrolling_two(a, b)
-        CalculadoraTiempos.calcular_naiv_loop_unrolling_four(a, b)
-        CalculadoraTiempos.calcular_winograd_original(a, b, n, p, m)
-        CalculadoraTiempos.calcular_winograd_scaled(a, b, n, p, m)
-        CalculadoraTiempos.calcular_strassen_naiv(a, b)
-        CalculadoraTiempos.calcular_strassen_winograd(a, b, n, p, m)
-        CalculadoraTiempos.calcular_iii3_sequential_block(a, b, i, i//4)
-        CalculadoraTiempos.calcular_iii4_parallel_block(a, b,i,i//4)
-        CalculadoraTiempos.calcular_iii5_enhanced_parallel_block(a, b,i,i//4)
-        CalculadoraTiempos.calcular_iv3_sequential_block(a, b, i, i//4)
-        CalculadoraTiempos.calcular_iv4_parallel_block(a, b,i,i//4)
-        CalculadoraTiempos.calcular_iv5_enhanced_parallel_block(a, b,i,i//4)
-        CalculadoraTiempos.calcular_v3_sequential_block(a, b, i, i//4)
-        CalculadoraTiempos.calcular_v4_parallel_block(a, b, i, i//4)
+        CalculadoraTiempos.calcular_naiv_on_array(a.copy(), b.copy())
+        CalculadoraTiempos.calcular_naiv_loop_unrolling_two(a.copy(), b.copy())
+        CalculadoraTiempos.calcular_naiv_loop_unrolling_four(a.copy(), b.copy())
+        CalculadoraTiempos.calcular_winograd_original(a.copy(), b.copy(), n, p, m)
+        CalculadoraTiempos.calcular_winograd_scaled(a.copy(), b.copy(), n, p, m)
+        CalculadoraTiempos.calcular_strassen_naiv(a.copy(), b.copy())
+        CalculadoraTiempos.calcular_strassen_winograd(a.copy(), b.copy(), n, p, m)
+        CalculadoraTiempos.calcular_iii3_sequential_block(a.copy(), b.copy(), i, i//4)
+        CalculadoraTiempos.calcular_iii4_parallel_block(a.copy(), b.copy(),i,i//4)
+        CalculadoraTiempos.calcular_iii5_enhanced_parallel_block(a.copy(), b.copy(),i,i//4)
+        CalculadoraTiempos.calcular_iv3_sequential_block(a.copy(), b.copy(), i, i//4)
+        CalculadoraTiempos.calcular_iv4_parallel_block(a.copy(), b.copy(),i,i//4)
+        CalculadoraTiempos.calcular_iv5_enhanced_parallel_block(a.copy(), b.copy(),i,i//4)
+        CalculadoraTiempos.calcular_v3_sequential_block(a.copy(), b.copy(), i, i//4)
+        CalculadoraTiempos.calcular_v4_parallel_block(a.copy(), b.copy(), i, i//4)
 
         ChartGenerator.generate_bar_chart(CalculadoraTiempos.categorias, CalculadoraTiempos.tiempos_ejecucion,
                                            f"Tiempos de ejecución de los algoritmos con matrices de tamaño {i}", "Algoritmo",
@@ -62,7 +62,7 @@ class CalculadoraTiempos:
         execution_time = (end - start) * 1000  # Convertir a milisegundos
         CalculadoraTiempos.categorias.append("NaivOnArray")
         CalculadoraTiempos.tiempos_ejecucion.append(execution_time)
-        print(f"Tiempo de ejecución NaivOnArray: {execution_time} milisegundos")
+        print(f"Tiempo de ejecución NaivOnArray: {execution_time:.6f} milisegundos")
         PerformanceLogger.log_performance("NaivOnArray", len(a), execution_time)
 
     @staticmethod
@@ -73,7 +73,7 @@ class CalculadoraTiempos:
         execution_time = (end - start) * 1000
         CalculadoraTiempos.categorias.append("NaivLoopUnrollingTwo")
         CalculadoraTiempos.tiempos_ejecucion.append(execution_time)
-        print(f"Tiempo de ejecución NaivLoopUnrollingTwo: {execution_time} milisegundos")
+        print(f"Tiempo de ejecución NaivLoopUnrollingTwo: {execution_time:.6f} milisegundos")
         PerformanceLogger.log_performance("NaivLoopUnrollingTwo", len(a), execution_time)
 
     @staticmethod
@@ -84,7 +84,7 @@ class CalculadoraTiempos:
         execution_time = (end - start) * 1000
         CalculadoraTiempos.categorias.append("NaivLoopUnrollingFour")
         CalculadoraTiempos.tiempos_ejecucion.append(execution_time)
-        print(f"Tiempo de ejecución NaivLoopUnrollingFour: {execution_time} milisegundos")
+        print(f"Tiempo de ejecución NaivLoopUnrollingFour: {execution_time:.6f} milisegundos")
         PerformanceLogger.log_performance("NaivLoopUnrollingFour", len(a), execution_time)
 
     @staticmethod
@@ -95,7 +95,7 @@ class CalculadoraTiempos:
         execution_time = (end - start) * 1000
         CalculadoraTiempos.categorias.append("WinogradOriginal")
         CalculadoraTiempos.tiempos_ejecucion.append(execution_time)
-        print(f"Tiempo de ejecución WinogradOriginal: {execution_time} milisegundos")
+        print(f"Tiempo de ejecución WinogradOriginal: {execution_time:.6f} milisegundos")
         PerformanceLogger.log_performance("WinogradOriginal", len(a), execution_time)
 
     @staticmethod
@@ -106,7 +106,7 @@ class CalculadoraTiempos:
         execution_time = (end - start) * 1000
         CalculadoraTiempos.categorias.append("WinogradScaled")
         CalculadoraTiempos.tiempos_ejecucion.append(execution_time)
-        print(f"Tiempo de ejecución WinogradScaled: {execution_time} milisegundos")
+        print(f"Tiempo de ejecución WinogradScaled: {execution_time:.6f} milisegundos")
         PerformanceLogger.log_performance("WinogradScaled", len(a), execution_time)
 
     @staticmethod
@@ -117,7 +117,7 @@ class CalculadoraTiempos:
         execution_time = (end - start) * 1000
         CalculadoraTiempos.categorias.append("StrassenNaiv")
         CalculadoraTiempos.tiempos_ejecucion.append(execution_time)
-        print(f"Tiempo de ejecución StrassenNaiv: {execution_time} milisegundos")
+        print(f"Tiempo de ejecución StrassenNaiv: {execution_time:.6f} milisegundos")
         PerformanceLogger.log_performance("StrassenNaiv", len(a), execution_time)
 
     @staticmethod
@@ -128,7 +128,7 @@ class CalculadoraTiempos:
         execution_time = (end - start) * 1000
         CalculadoraTiempos.categorias.append("StrassenWinograd")
         CalculadoraTiempos.tiempos_ejecucion.append(execution_time)
-        print(f"Tiempo de ejecución StrassenWinograd: {execution_time} milisegundos")
+        print(f"Tiempo de ejecución StrassenWinograd: {execution_time:.6f} milisegundos")
         PerformanceLogger.log_performance("StrassenWinograd", len(a), execution_time)
 
     @staticmethod
@@ -139,7 +139,7 @@ class CalculadoraTiempos:
         execution_time = (end - start) * 1000
         CalculadoraTiempos.categorias.append("III3.SequentialBlock")
         CalculadoraTiempos.tiempos_ejecucion.append(execution_time)
-        print(f"Tiempo de ejecución III3.SequentialBlock: {execution_time} milisegundos")
+        print(f"Tiempo de ejecución III3.SequentialBlock: {execution_time:.6f} milisegundos")
         PerformanceLogger.log_performance("III3.SequentialBlock", len(a), execution_time)
 
     @staticmethod
@@ -150,7 +150,7 @@ class CalculadoraTiempos:
         execution_time = (end - start) * 1000
         CalculadoraTiempos.categorias.append("III4.ParallelBlock")
         CalculadoraTiempos.tiempos_ejecucion.append(execution_time)
-        print(f"Tiempo de ejecución III4.ParallelBlock: {execution_time} milisegundos")
+        print(f"Tiempo de ejecución III4.ParallelBlock: {execution_time:.6f} milisegundos")
         PerformanceLogger.log_performance("III4.ParallelBlock", len(a), execution_time)
 
     @staticmethod
@@ -161,7 +161,7 @@ class CalculadoraTiempos:
         execution_time = (end - start) * 1000
         CalculadoraTiempos.categorias.append("III5.EnhancedParallelBlock")
         CalculadoraTiempos.tiempos_ejecucion.append(execution_time)
-        print(f"Tiempo de ejecución III5.EnhancedParallelBlock: {execution_time} milisegundos")
+        print(f"Tiempo de ejecución III5.EnhancedParallelBlock: {execution_time:.6f} milisegundos")
         PerformanceLogger.log_performance("III5.EnhancedParallelBlock", len(a), execution_time)
 
     @staticmethod
@@ -172,7 +172,7 @@ class CalculadoraTiempos:
         execution_time = (end - start) * 1000
         CalculadoraTiempos.categorias.append("IV3.SequentialBlock")
         CalculadoraTiempos.tiempos_ejecucion.append(execution_time)
-        print(f"Tiempo de ejecución IV3.SequentialBlock: {execution_time} milisegundos")
+        print(f"Tiempo de ejecución IV3.SequentialBlock: {execution_time:.6f} milisegundos")
         PerformanceLogger.log_performance("IV3.SequentialBlock", len(a), execution_time)
 
     @staticmethod
@@ -183,7 +183,7 @@ class CalculadoraTiempos:
         execution_time = (end - start) * 1000
         CalculadoraTiempos.categorias.append("IV4.ParallelBlock")
         CalculadoraTiempos.tiempos_ejecucion.append(execution_time)
-        print(f"Tiempo de ejecución IV4.ParallelBlock: {execution_time} milisegundos")
+        print(f"Tiempo de ejecución IV4.ParallelBlock: {execution_time:.6f} milisegundos")
         PerformanceLogger.log_performance("IV4.ParallelBlock", len(a), execution_time)
 
     @staticmethod
@@ -194,7 +194,7 @@ class CalculadoraTiempos:
         execution_time = (end - start) * 1000
         CalculadoraTiempos.categorias.append("IV5.EnhancedParallelBlock")
         CalculadoraTiempos.tiempos_ejecucion.append(execution_time)
-        print(f"Tiempo de ejecución IV5.EnhancedParallelBlock: {execution_time} milisegundos")
+        print(f"Tiempo de ejecución IV5.EnhancedParallelBlock: {execution_time:.6f} milisegundos")
         PerformanceLogger.log_performance("IV5.EnhancedParallelBlock", len(a), execution_time)
 
     @staticmethod
@@ -205,7 +205,7 @@ class CalculadoraTiempos:
         execution_time = (end - start) * 1000
         CalculadoraTiempos.categorias.append("V3.SequentialBlock")
         CalculadoraTiempos.tiempos_ejecucion.append(execution_time)
-        print(f"Tiempo de ejecución V3.SequentialBlock: {execution_time} milisegundos")
+        print(f"Tiempo de ejecución V3.SequentialBlock: {execution_time:.6f} milisegundos")
         PerformanceLogger.log_performance("V3.SequentialBlock", len(a), execution_time)
 
     @staticmethod
@@ -216,5 +216,5 @@ class CalculadoraTiempos:
         execution_time = (end - start) * 1000
         CalculadoraTiempos.categorias.append("V4.ParallelBlock")
         CalculadoraTiempos.tiempos_ejecucion.append(execution_time)
-        print(f"Tiempo de ejecución V4.ParallelBlock: {execution_time} milisegundos")
+        print(f"Tiempo de ejecución V4.ParallelBlock: {execution_time:.6f} milisegundos")
         PerformanceLogger.log_performance("V4.ParallelBlock", len(a), execution_time)

@@ -8,14 +8,15 @@ class InterfazMenu(tk.Tk):
         self.title("Menú de Opciones")
         self.geometry("750x500")
 
-        opciones_label = tk.Label(self, text="1. Calcular tiempos de ejecución de los algoritmos con matrices de tamaño 16x16\n\n"
-                                              "2. Calcular tiempos de ejecución de los algoritmos con matrices de tamaño 32x32\n\n"
-                                              "3. Calcular tiempos de ejecución de los algoritmos con matrices de tamaño 64x64\n\n"
-                                              "4. Calcular tiempos de ejecución de los algoritmos con matrices de tamaño 128x128\n\n"
-                                              "5. Calcular tiempos de ejecución de los algoritmos con matrices de tamaño 256x256\n\n"
-                                              "6. Calcular tiempos de ejecución de los algoritmos con matrices de tamaño 512x512\n\n"
-                                              "7. Calcular tiempos de ejecución de los algoritmos con matrices de tamaño 1024x1024\n\n"
-                                              "8. Calcular tiempos de ejecución de los algoritmos con matrices de tamaño 2048x2048",
+        opciones_label = tk.Label(self, text="1. Calcular tiempos de ejecución de los algoritmos con matrices de tamaño 8x8\n\n"
+                                              "2. Calcular tiempos de ejecución de los algoritmos con matrices de tamaño 16x16\n\n"
+                                              "3. Calcular tiempos de ejecución de los algoritmos con matrices de tamaño 32x32\n\n"
+                                              "4. Calcular tiempos de ejecución de los algoritmos con matrices de tamaño 64x64\n\n"
+                                              "5. Calcular tiempos de ejecución de los algoritmos con matrices de tamaño 128x128\n\n"
+                                              "6. Calcular tiempos de ejecución de los algoritmos con matrices de tamaño 256x256\n\n"
+                                              "7. Calcular tiempos de ejecución de los algoritmos con matrices de tamaño 512x512\n\n"
+                                              "8. Calcular tiempos de ejecución de los algoritmos con matrices de tamaño 1024x1024\n\n"
+                                              "9. Calcular tiempos de ejecución de los algoritmos con matrices de tamaño 2048x2048",
                                   justify=tk.LEFT)
         opciones_label.pack(pady=10)
 
@@ -38,7 +39,7 @@ class InterfazMenu(tk.Tk):
         opcion = int(opcion)
         self.opcion_entrada.delete(0, tk.END)
 
-        tamanio_matriz = [16, 32, 64, 128, 256, 512, 1024, 2048][opcion - 1]
+        tamanio_matriz = [8, 16, 32, 64, 128, 256, 512, 1024, 2048][opcion - 1]
         CalculadoraTiempos.calcular_tiempos(tamanio_matriz)
 
 # Aquí debes importar y definir la clase CalculadoraTiempos

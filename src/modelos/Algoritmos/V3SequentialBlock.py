@@ -31,8 +31,15 @@ def print_matrix(matrix):
         print(" ".join(str(element) for element in row))
 
 if __name__ == "__main__":
-    A = [[1, 2], [3, 4]]
-    B = [[5, 6], [7, 8]]
+    A = [[1, 2, 3, 4],
+        [5, 6, 7, 8],
+        [9, 10, 11, 12],
+        [13, 14, 15, 16]]
 
-    C = multiply_V3SequentialBlock(A, B, 2, 1)
+    B = [[17, 18, 19, 20],
+        [21, 22, 23, 24],
+        [25, 26, 27, 28],
+        [29, 30, 31, 32]]
+
+    C = multiply_V3SequentialBlock(A, B, 4, 1)
     print_matrix(C)

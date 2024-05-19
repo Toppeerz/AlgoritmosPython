@@ -22,7 +22,7 @@ class ChartGenerator:
         # Añade el valor exacto encima de cada barra
         for bar in bars:
             yval = bar.get_height()
-            plt.text(bar.get_x() + bar.get_width()/2, yval + 0.05, round(yval, 2), ha='center', va='bottom')
+            plt.text(bar.get_x() + bar.get_width()/2, yval + 0.05, '{:.6f}'.format(yval), ha='center', va='bottom')
 
 
         # Guarda el gráfico como una imagen PNG
